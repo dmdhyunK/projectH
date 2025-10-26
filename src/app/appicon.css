@@ -1,0 +1,134 @@
+.value-section {
+  width: 100%;
+  display: flex;
+  background-color: #ffffff;
+}
+
+/* ==================================
+   왼쪽 (55% 텍스트)
+================================== */
+.value-left-column {
+  width: 55%;
+  padding: 10vw 5vw 10vw 10vw;
+  display: grid;
+  place-items: center;
+}
+.value-text-content {
+  width: 100%;
+}
+.value-title-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.value-keyword-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.value-icon {
+  width: 40px;
+  height: 40px;
+}
+.value-keyword-img {
+  height: 40px;
+  width: auto;
+}
+
+/* ==================================
+   오른쪽 (45% 파란 박스 + 다이얼)
+================================== */
+.value-right-column {
+  width: 45%;
+  background-color: #56AFDF;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.value-phone {
+  width: 70%;
+  max-width: 400px;
+  height: auto;
+}
+
+/* ==================================
+   다이얼 (회전)
+================================== */
+.dial-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+}
+
+.dial-rotor {
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  width: 400px; /* 회전 반경 증가 */
+  height: 400px;
+  margin-left: -200px;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transform-origin: center top;
+}
+
+.dial-button {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s ease;
+}
+.dial-button:hover {
+  transform: scale(1.1);
+}
+.dial-button img {
+  width: 32px;
+  height: 32px;
+}
+
+/* 1. 아이콘 4개 배치 */
+.icon-mypage {
+  top: 0; /* 꼭대기 (중앙) */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.icon-chat {
+  top: 40px; /* 왼쪽 */
+  left: 40px;
+}
+.icon-content {
+  top: 40px; /* 오른쪽 */
+  right: 40px;
+}
+.icon-activity {
+  top: 100px; /* 하단 (숨겨짐) */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.5;
+}
+
+/* 2. 회전 로직 (4단계) */
+.dial-rotor.mypage {
+  transform: rotate(0deg);
+}
+.dial-rotor.chat {
+  transform: rotate(45deg);
+}
+.dial-rotor.content {
+  transform: rotate(-45deg);
+}
+.dial-rotor.activity {
+  transform: rotate(180deg);
+}

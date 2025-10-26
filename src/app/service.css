@@ -1,0 +1,127 @@
+/* ======================================================
+   Service 섹션 공통 스타일
+====================================================== */
+.service-wrapper {
+  height: 300vh; 
+  position: relative;
+  color: #fff;
+}
+
+.sticky-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.service-slide {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  display: grid;
+  place-items: center;
+}
+
+.service-slide.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 10; 
+}
+
+/* ======================================================
+   모든 슬라이드 공통: 16:9 컨테이너
+====================================================== */
+.service-content-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.is-blue {
+  background-color: #56AFDF;
+}
+
+.anim-letter-envelope {
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45%;
+  z-index: 10;
+}
+
+.anim-final-text {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  line-height: 1.4;
+  opacity: 0;
+}
+
+.letter-slide.is-visible .anim-letter-paper {
+  opacity: 1;
+  transform: translateX(-50%) translateY(300px);
+  transition: transform 2.5s ease-in-out 0.5s, opacity 1s ease-out 0.5s;
+}
+
+.letter-slide.is-visible .anim-final-text {
+  opacity: 1;
+  transition: opacity 1.5s ease-in 3.5s;
+}
+
+.program-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover; 
+}
+.point-img {
+
+}
+
+.slide-text-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+
+.slide-text-content h3 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+.slide-text-content p {
+  font-size: clamp(16px, 1.5vw, 22px);
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ======================================================
+   반응형 (Program & Point 텍스트)
+====================================================== */
+@media (max-width: 900px) {
+  .slide-text-content h3 {
+    font-size: clamp(28px, 6vw, 48px);
+  }
+  .slide-text-content p {
+    font-size: clamp(14px, 2vw, 18px);
+  }
+}
